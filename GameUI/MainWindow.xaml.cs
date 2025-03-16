@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TI4_GameEngine.Objects;
 
 namespace GameUI;
 
@@ -25,19 +26,25 @@ public partial class MainWindow : Window
 
     public void SetupImage()
     {
-        // Create the image element.
-        //Image simpleImage = new Image();
-        TestImage1.Width = 200;
-        TestImage1.Margin = new Thickness(5);
+        //Test Card object
+        Card leadership = new Card(StrategyTypes.LEADERSHIP);
+        Card diplomacy = new Card(StrategyTypes.DIPLOMACY);
+        Card politics = new Card(StrategyTypes.POLITICS);
+        Card construction = new Card(StrategyTypes.CONSTRUCTION);
+        Card trade = new Card(StrategyTypes.TRADE);
+        Card warfare = new Card(StrategyTypes.WARFARE);
+        Card technology = new Card(StrategyTypes.TECHNOLOGY);
+        Card imperial = new Card(StrategyTypes.IMPERIAL);
 
-        // Create source.
-        BitmapImage bi = new BitmapImage();
-        // BitmapImage.UriSource must be in a BeginInit/EndInit block.
-        bi.BeginInit();
-        bi.UriSource = new Uri("C://Users/renal/OneDrive/Pictures/TI4_Bitmaps/JolnarCardBackTI3.jpg", UriKind.Absolute);
-        bi.EndInit();
         // Set the image source.
-        TestImage1.Source = bi;
-        
+        Card1.Source = leadership.FrontOfCard();
+        Card2.Source = diplomacy.FrontOfCard();
+        Card3.Source = politics.FrontOfCard();
+        Card4.Source = construction.FrontOfCard();
+        Card5.Source = trade.FrontOfCard();
+        Card6.Source = warfare.FrontOfCard();
+        Card7.Source = technology.FrontOfCard();
+        Card8.Source = imperial.FrontOfCard();
+
     }
 }

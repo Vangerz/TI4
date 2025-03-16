@@ -9,8 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommonEntities\CommonEntities.csproj" />
-    <ProjectReference Include="..\TI4_MainMenu\TI4_GameEngine.csproj" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
   </ItemGroup>
 
 </Project>
