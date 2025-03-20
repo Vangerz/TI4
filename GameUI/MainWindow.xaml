@@ -6,26 +6,14 @@
         xmlns:local="clr-namespace:GameUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <ItemsControl ItemsSource="{Binding Items}">
-        <ItemsControl.ItemTemplate>
-            <DataTemplate>
-                <!--Images/Data to layout in grid-->
-                <StackPanel>
-                    <Image x:Name="Card1" Margin="10" MaxHeight="192" MaxWidth="128"></Image>
-                    <!--<Image x:Name="Card2" Margin="10" MaxHeight="192" MaxWidth="128"></Image>
-                    <Image x:Name="Card3" Margin="10" MaxHeight="192" MaxWidth="128"></Image>
-                    <Image x:Name="Card4" Margin="10" MaxHeight="192" MaxWidth="128"></Image>
-                    <Image x:Name="Card5" Margin="10" MaxHeight="192" MaxWidth="128"></Image>
-                    <Image x:Name="Card6" Margin="10" MaxHeight="192" MaxWidth="128"></Image>
-                    <Image x:Name="Card7" Margin="10" MaxHeight="192" MaxWidth="128"></Image>
-                    <Image x:Name="Card8" Margin="10" MaxHeight="192" MaxWidth="128"></Image>-->
-                </StackPanel>
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <UniformGrid Columns="4"/>
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-    </ItemsControl>
+    <WrapPanel>
+        <Image x:Name="Card1" Margin="10" MaxHeight="192" MaxWidth="128"/>
+        <Image x:Name="Card2" Margin="10" MaxHeight="192" MaxWidth="128"/>
+        <Image x:Name="Card3" Margin="10" MaxHeight="192" MaxWidth="128"/>
+        <Image x:Name="Card4" Margin="10" MaxHeight="192" MaxWidth="128"/>
+        <Image x:Name="Card5" Margin="10" MaxHeight="192" MaxWidth="128"/>
+        <Image x:Name="Card6" Margin="10" MaxHeight="192" MaxWidth="128"/>
+        <Image x:Name="Card7" Margin="10" MaxHeight="192" MaxWidth="128"/>
+        <Image x:Name="Card8" Margin="10" MaxHeight="192" MaxWidth="128"/>
+    </WrapPanel>
 </Window>

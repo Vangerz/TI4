@@ -21,10 +21,31 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        SetupImage();
+        TestImages();
     }
 
-    public void SetupImage()
+    public void MainMenu()
+    {
+    }
+
+    public void SettingsClicked()
+    {
+        //Open settings menu
+        //TODO
+    }
+
+    public void NewGameClicked()
+    {
+        //Open new game menu
+        //TODO
+    }
+    public void LoadGameClicked()
+    {
+        //Open load game menu
+        //TODO
+    }
+
+    public void TestImages()
     {
         //Test Card object
         Card leadership = new Card(StrategyTypes.LEADERSHIP);
@@ -36,7 +57,7 @@ public partial class MainWindow : Window
         Card technology = new Card(StrategyTypes.TECHNOLOGY);
         Card imperial = new Card(StrategyTypes.IMPERIAL);
 
-        // Set the image source.
+        // Set the image sources.
         Card1.Source = leadership.FrontOfCard();
         Card2.Source = diplomacy.FrontOfCard();
         Card3.Source = politics.FrontOfCard();
