@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using System.IO;
+using System.Reflection;
 using System.Windows.Media.Imaging;
 
 namespace GameUI.Resources
@@ -6,7 +8,8 @@ namespace GameUI.Resources
     public static class ImageResources
     {
         //URI of images folder
-        public const string ResourceFolder = "C://Users/renal/OneDrive/Pictures/TI4_Bitmaps/";
+        //public const string ResourceFolder = "C://Users/renal/OneDrive/Pictures/TI4_Bitmaps/";
+        public static string ResourceFolder = Path.Combine(GetSolutionPath(), "Resources/TI4_Bitmaps/");
 
         //Front and back generics of cards
         public const string TechCardBack = "Back_Tech_Card_1.jpg";
@@ -27,7 +30,13 @@ namespace GameUI.Resources
         public static BitmapImage Warfare = new(new Uri(ResourceFolder + "Card_Strategy_Warfare.png"));
         public static BitmapImage Technology = new(new Uri(ResourceFolder + "Card_Strategy_Technology.png"));
         public static BitmapImage Imperial = new(new Uri(ResourceFolder + "Card_Strategy_Imperial.png"));
-        
 
+        public static string GetSolutionPath()
+        {
+            string assemblyPath = Assembly.GetExecutingAssembly().Location;
+            string solutionPath = Path.GetDirectoryName(Path.GetDirectoryName(assemblyPath)) ?? "";
+            solutionPath = Path.Combine(solutionPath, @"..\..\");
+            return solutionPath;
+        }
     }
 }

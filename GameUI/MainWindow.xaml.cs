@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -47,6 +48,8 @@ public partial class MainWindow : Window
 
     public void TestImages()
     {
+        Console.WriteLine(System.IO.Path.Combine(Directory.GetCurrentDirectory(), "GameUI/Resources/TI4_Bitmaps/"));
+
         //Test Card object
         Card leadership = new Card(StrategyTypes.LEADERSHIP);
         Card diplomacy = new Card(StrategyTypes.DIPLOMACY);
