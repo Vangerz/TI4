@@ -46,6 +46,11 @@ namespace TI4_GameEngine.Objects
     abstract class Card
     {
         /// <summary>
+        /// Name of the card
+        /// </summary>
+        required public string Name;
+
+        /// <summary>
         /// Front of card
         /// </summary>
         required public BitmapImage Front;
@@ -138,34 +143,42 @@ namespace TI4_GameEngine.Objects
             {
                 case StrategyTypes.LEADERSHIP:
                     Front = ImageResources.Leadership;
+                    Name = "Leadership";
                     // TODO: Assign leadership action method to action
                     break;
                 case StrategyTypes.DIPLOMACY:
                     Front = ImageResources.Diplomacy;
+                    Name = "Diplomacy";
                     // TODO: Assign action
                     break;
                 case StrategyTypes.POLITICS:
                     Front = ImageResources.Politics;
+                    Name = "Politics";
                     // TODO: Assign action
                     break;
                 case StrategyTypes.CONSTRUCTION:
                     Front = ImageResources.Construction;
+                    Name = "Construction";
                     // TODO: Assign action
                     break;
                 case StrategyTypes.TRADE:
                     Front = ImageResources.Trade;
+                    Name = "Trade";
                     // TODO: Assign action
                     break;
                 case StrategyTypes.WARFARE:
                     Front = ImageResources.Warfare;
+                    Name = "Warfare";
                     // TODO: Assign action
                     break;
                 case StrategyTypes.TECHNOLOGY:
                     Front = ImageResources.Technology;
+                    Name = "Technology";    
                     // TODO: Assign action
                     break;
                 case StrategyTypes.IMPERIAL:
                     Front = ImageResources.Imperial;
+                    Name = "Imperial";
                     // TODO: Assign action
                     break;
                 default:

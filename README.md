@@ -78,7 +78,12 @@ Start MainMenu():
 
 =====Card Types:=====
 Card base class:
-Contains Front, Back, an Owner (Or none if public card on board), ShareWith List (players who can view front of card), and operations to show/share with players
+Contains Front, 
+	Back, 
+	an Owner (Or none if public card on board), 
+	ShareWith List (players who can view front of card), 
+	and operations to show/share with players,
+	name (programming name, not display name)
 
 Strategy Card:
 Sets front and back based on which strategy card is constructed
