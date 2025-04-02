@@ -75,3 +75,48 @@ Start MainMenu():
 //    //Theme style
 //    //Username
 //    //Race Tylesets
+
+=====Card Types:=====
+Card base class:
+Contains Front, Back, an Owner (Or none if public card on board), ShareWith List (players who can view front of card), and operations to show/share with players
+
+Strategy Card:
+Sets front and back based on which strategy card is constructed
+Assigns the method operation called/used when the card is played 
+	(Secondary ability is played for each player in game as part of this action when played)
+Contains name
+Contains primary ability description
+Contains secondary ability description
+
+Tech Card:
+Sets front and back based on which tech card is constructed
+Assigns the method operation called/used when the card is played
+Contains a requirement list of tech colors needed to purchase (Red,Green,Yellow,Blue)
+Contains color type (Red,Green,Yellow,Blue)
+Contains name
+Contains description
+
+Unit Card:
+Sets frong and back based on which unit card is constructed
+Assigns the method operation called/used when the card is played
+Contains a requirement list of tech colors needed to purchase (Red,Green,Yellow,Blue)
+Contains Unit Type
+Contains Unit stats (Cost, Combat, Movement, Capacity, etc.)
+Contains name 
+Contains description
+
+Planet Card:
+Sets front and back based on which planet card is constructed
+Contains specialty type if present (Red,Yellow,Green,Blue)
+Contains Resource Value
+Contains Influence Value
+Contains Planet Type (Hazardous, Industrial, Cultural, etc.)
+Contains Name
+Contains Flavor Text (optional)
+
+Action Card:
+Sets front and back based on which action card is constructed
+Assigns the method operation called/used when the card is played
+Contains name
+Contains description
+
