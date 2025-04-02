@@ -44,7 +44,9 @@ namespace TI4_GameEngine.Objects
 
         // Background images for card
         public BitmapImage Front;
-        public BitmapImage Back;
+
+        // List of players allowed to view card front
+        List<Player> FrontVisibleTo = new List<Player>();
 
         // Render front/back of card to display
         public BitmapImage FrontOfCard()
@@ -112,7 +114,6 @@ namespace TI4_GameEngine.Objects
             switch (stratCard)
             {
                 case StrategyTypes.LEADERSHIP:
-                    //Front = new BitmapImage(CommonEntities.ImageResources.Leadership);
                     Front = ImageResources.Leadership;
                     break;
                 case StrategyTypes.DIPLOMACY:

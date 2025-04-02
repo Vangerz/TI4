@@ -35,7 +35,7 @@ namespace GameUI.Resources
         {
             string assemblyPath = Assembly.GetExecutingAssembly().Location;
             string solutionPath = Path.GetDirectoryName(Path.GetDirectoryName(assemblyPath)) ?? "";
-            solutionPath = Path.Combine(solutionPath, @"..\..\");
+            solutionPath = Path.Combine(solutionPath, @"..\..\"); // Back out of bin/debug/ folder to main directory for consistent resource location
             return solutionPath;
         }
     }
