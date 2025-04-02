@@ -58,7 +58,7 @@ namespace TI4_GameEngine.Objects
         /// <summary>
         /// Back of card
         /// </summary>
-        public BitmapImage Back = ImageResources.DefaultCardBackImage; // TODO: Default to specific image based on card type
+        required public BitmapImage Back;// = ImageResources.DefaultCardBackImage; // TODO: Default to specific image based on card type
 
         /// <summary>
         /// Owner of card (if applicable)
@@ -142,42 +142,50 @@ namespace TI4_GameEngine.Objects
             switch (stratCard)
             {
                 case StrategyTypes.LEADERSHIP:
-                    Front = ImageResources.Leadership;
+                    Front = ImageResources.LeadershipFront;
+                    Back = ImageResources.LeadershipBack;
                     Name = "Leadership";
                     // TODO: Assign leadership action method to action
                     break;
                 case StrategyTypes.DIPLOMACY:
-                    Front = ImageResources.Diplomacy;
+                    Front = ImageResources.DiplomacyFront;
+                    Back = ImageResources.DiplomacyBack;
                     Name = "Diplomacy";
                     // TODO: Assign action
                     break;
                 case StrategyTypes.POLITICS:
-                    Front = ImageResources.Politics;
+                    Front = ImageResources.PoliticsFront;
+                    Back = ImageResources.PoliticsBack;
                     Name = "Politics";
                     // TODO: Assign action
                     break;
                 case StrategyTypes.CONSTRUCTION:
-                    Front = ImageResources.Construction;
+                    Front = ImageResources.ConstructionFront;
+                    Back = ImageResources.ConstructionBack;
                     Name = "Construction";
                     // TODO: Assign action
                     break;
                 case StrategyTypes.TRADE:
-                    Front = ImageResources.Trade;
+                    Front = ImageResources.TradeFront;
+                    Back = ImageResources.TradeBack;
                     Name = "Trade";
                     // TODO: Assign action
                     break;
                 case StrategyTypes.WARFARE:
-                    Front = ImageResources.Warfare;
+                    Front = ImageResources.WarfareFront;
+                    Back = ImageResources.WarfareBack;
                     Name = "Warfare";
                     // TODO: Assign action
                     break;
                 case StrategyTypes.TECHNOLOGY:
-                    Front = ImageResources.Technology;
+                    Front = ImageResources.TechnologyFront;
+                    Back = ImageResources.TechnologyBack;
                     Name = "Technology";    
                     // TODO: Assign action
                     break;
                 case StrategyTypes.IMPERIAL:
-                    Front = ImageResources.Imperial;
+                    Front = ImageResources.ImperialFront;
+                    Back = ImageResources.ImperialBack;
                     Name = "Imperial";
                     // TODO: Assign action
                     break;

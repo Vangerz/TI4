@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using GameUI.Resources;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TI4_GameEngine.Objects;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GameUI;
 
@@ -46,29 +48,50 @@ public partial class MainWindow : Window
         //TODO
     }
 
+    Card card1;
+    bool frontVisible = true;
+
     public void TestImages()
     {
         Console.WriteLine(System.IO.Path.Combine(Directory.GetCurrentDirectory(), "GameUI/Resources/TI4_Bitmaps/"));
 
         //Test Card object
-        Card leadership = new Card(StrategyTypes.LEADERSHIP);
-        Card diplomacy = new Card(StrategyTypes.DIPLOMACY);
-        Card politics = new Card(StrategyTypes.POLITICS);
-        Card construction = new Card(StrategyTypes.CONSTRUCTION);
-        Card trade = new Card(StrategyTypes.TRADE);
-        Card warfare = new Card(StrategyTypes.WARFARE);
-        Card technology = new Card(StrategyTypes.TECHNOLOGY);
-        Card imperial = new Card(StrategyTypes.IMPERIAL);
+        Card leadership = new StrategyCard(StrategyTypes.LEADERSHIP) {Front = ImageResources.LeadershipFront,
+            Back = ImageResources.LeadershipBack,
+            Name = "Leadership",
+            action = () => { Console.WriteLine("Leadership Action"); }
+        };
+        card1 = leadership;
+        //Card diplomacy = new StrategyCard(StrategyTypes.DIPLOMACY);
+        //Card politics = new StrategyCard(StrategyTypes.POLITICS);
+        //Card construction = new StrategyCard(StrategyTypes.CONSTRUCTION);
+        //Card trade = new StrategyCard(StrategyTypes.TRADE);
+        //Card warfare = new StrategyCard(StrategyTypes.WARFARE);
+        //Card technology = new StrategyCard(StrategyTypes.TECHNOLOGY);
+        //Card imperial = new StrategyCard(StrategyTypes.IMPERIAL);
 
         // Set the image sources.
-        Card1.Source = leadership.FrontOfCard();
-        Card2.Source = diplomacy.FrontOfCard();
-        Card3.Source = politics.FrontOfCard();
-        Card4.Source = construction.FrontOfCard();
-        Card5.Source = trade.FrontOfCard();
-        Card6.Source = warfare.FrontOfCard();
-        Card7.Source = technology.FrontOfCard();
-        Card8.Source = imperial.FrontOfCard();
+        Card1.Source = leadership.Front;
+        //Card2.Source = diplomacy.Front;
+        //Card3.Source = politics.Front;
+        //Card4.Source = construction.Front;
+        //Card5.Source = trade.Front;
+        //Card6.Source = warfare.Front;
+        //Card7.Source = technology.Front;
+        //Card8.Source = imperial.Front;
 
+    }
+
+    private void Card1_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (frontVisible)
+        {
+            Card1.Source = card1.Back;
+        }
+        else
+        {
+            Card1.Source = card1.Front;
+        }
+        frontVisible = !frontVisible;
     }
 }

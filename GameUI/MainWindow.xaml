@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <WrapPanel>
-        <Image x:Name="Card1" Margin="10" MaxHeight="192" MaxWidth="128"/>
+        <Image x:Name="Card1" Margin="10" MaxHeight="192" MaxWidth="128" MouseDown="Card1_MouseDown"/>
         <Image x:Name="Card2" Margin="10" MaxHeight="192" MaxWidth="128"/>
         <Image x:Name="Card3" Margin="10" MaxHeight="192" MaxWidth="128"/>
         <Image x:Name="Card4" Margin="10" MaxHeight="192" MaxWidth="128"/>
