@@ -11,6 +11,10 @@ namespace GameUI.Resources
         //public const string ResourceFolder = "C://Users/renal/OneDrive/Pictures/TI4_Bitmaps/";
         public static string ResourceFolder = Path.Combine(GetSolutionPath(), "Resources/TI4_Bitmaps/");
 
+        // Default card back image to use if none is specified
+        public const string DefaultCardBack = "Back_Card_1.jpg";
+        public static BitmapImage DefaultCardBackImage = new(new Uri(ResourceFolder + DefaultCardBack));    
+
         //Front and back generics of cards
         public const string TechCardBack = "Back_Tech_Card_1.jpg";
         public const string TechCardFront = "space_stars_generic.jpg";

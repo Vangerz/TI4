@@ -23,6 +23,9 @@ namespace TI4_GameEngine.Objects
         STRATEGY,
     }
 
+    /// <summary>
+    /// Enumeration of all strategy card types
+    /// </summary>
     public enum StrategyTypes
     {
         LEADERSHIP,
@@ -35,139 +38,140 @@ namespace TI4_GameEngine.Objects
         IMPERIAL
     }
 
-    class Card
+    //Action cards need to populate the following 5 items:
+    // Name, Number in deck, Play condition, Effect (Action), Flavor Text
+
+    //
+
+    abstract class Card
     {
-        public string Tooltip = "Default Card Tool Tip";
-        public string Title = "Default Card Title";
-        public string Timing = "Default Card Timing Phase";
-        public string Contents = "Default Card Contents";
+        /// <summary>
+        /// Front of card
+        /// </summary>
+        required public BitmapImage Front;
 
-        // Background images for card
-        public BitmapImage Front;
+        /// <summary>
+        /// Back of card
+        /// </summary>
+        public BitmapImage Back = ImageResources.DefaultCardBackImage; // TODO: Default to specific image based on card type
 
-        // List of players allowed to view card front
-        List<Player> FrontVisibleTo = new List<Player>();
+        /// <summary>
+        /// Owner of card (if applicable)
+        /// </summary>
+        public Player? Owner;
 
-        // Render front/back of card to display
-        public BitmapImage FrontOfCard()
+        /// <summary>
+        /// List of players allowed to view card contents
+        /// </summary>
+        List<Player> SharedWith = new List<Player>();
+
+        /// <summary>
+        /// Default constructor; Should be overridden by child classes
+        /// </summary>
+        public Card()
         {
-            // TODO: Render partial bitmaps and text into a card image if there isn't one already
-            Console.WriteLine("IMPLEMENT FRONT CARD RENDER");
-            return Front;
-        }
-        public BitmapImage BackOfCard()
-        {
-            // TODO: Render partial bitmaps and text into a card image if there isn't one already
-            Console.WriteLine("IMPLEMENT BACK CARD RENDER");
-            return Back;
-        }
-
-        public bool ConditionsMet()
-        {
-            // TODO: Card Conditions Met Check code
-            Console.WriteLine("GENERIC CARD CONDITIONS. NOT IMPLEMENTED.");
-            return false;
+            // Default constructor
         }
 
-        public object Action()
-        {
-            // TODO: Default card played/accomplished results
-            Console.WriteLine("GENERIC CARD ACTION. NOT IMPLEMENTED.");
-            return null;
-        }
+        /// <summary>
+        /// Action taken when card is played
+        /// (This could be a one-time purge, exhaust, or once per window with conditions met)
+        /// </summary>
+        required public Action action;
 
-        public Card(CardTypes type)
+        #region ShowToPlayers
+        /// <summary>
+        /// Shows card to the specified player
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        public bool ShowCardTo(Objects.Player player)
         {
-            throw new NotImplementedException("TODO: UNKNOWN CARD TYPE");
-
-            // TODO: Default Card Constructor
-            switch (type)
+            // TODO: Manager to track if it was viewed/seen,
+            // Timeout before removing permission to view,
+            // Return true if visibility changed,false if nothing changed
+            if(!SharedWith.Contains(player))
             {
-                case CardTypes.DEFAULT_UNITIALIZED:
-                    throw new NotImplementedException("TODO: UNKNOWN CARD TYPE");
-                    break;
-                case CardTypes.PUBLIC_OBJECTIVE:
-                    break;
-                case CardTypes.PRIVATE_OBJECTIVE:
-                    break;
-                case CardTypes.ACTION:
-                    break;
-                case CardTypes.TECHNOLOGY:
-                    break;
-                case CardTypes.PROMISSORY:
-                    break;
-                case CardTypes.PLANET:
-                    break;
-                case CardTypes.RELIC_FRAGMENT:
-                    break;
-                case CardTypes.RELIC:
-                    break;
-                case CardTypes.STRATEGY:
-                    break;
-                default:
-                    break;
+                SharedWith.Add(player);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
-
-        public Card(StrategyTypes stratCard)
+        /// <summary>
+        /// Shows card to all players in the game
+        /// </summary>
+        /// <param name="board"></param>
+        /// <returns></returns>
+        public bool ShowCardToAll(Objects.Board board)
         {
+            // Shows card to all players in the game; Returns true if any new players were shown the card
+            return ShowCardToXPlayers(board.Players);
+        }
+        /// <summary>
+        /// Shows card to a list of players
+        /// </summary>
+        /// <param name="players"></param>
+        /// <returns></returns>
+        public bool ShowCardToXPlayers(List<Objects.Player> players)
+        {
+            bool newPlayerShownCard = false;
+            // Shows card to a list of players. Returns true if any new players were shown the card
+            foreach (Objects.Player player in players)
+            {
+                newPlayerShownCard |= ShowCardTo(player);
+            }
+            return newPlayerShownCard;
+        }
+        #endregion ShowToPlayers
+    }
+
+    class StrategyCard : Card
+    {
+        public StrategyTypes StrategyType;
+        public StrategyCard(StrategyTypes stratCard) : base()
+        {
+            StrategyType = stratCard;
             switch (stratCard)
             {
                 case StrategyTypes.LEADERSHIP:
                     Front = ImageResources.Leadership;
+                    // TODO: Assign leadership action method to action
                     break;
                 case StrategyTypes.DIPLOMACY:
                     Front = ImageResources.Diplomacy;
+                    // TODO: Assign action
                     break;
                 case StrategyTypes.POLITICS:
                     Front = ImageResources.Politics;
+                    // TODO: Assign action
                     break;
                 case StrategyTypes.CONSTRUCTION:
                     Front = ImageResources.Construction;
+                    // TODO: Assign action
                     break;
                 case StrategyTypes.TRADE:
                     Front = ImageResources.Trade;
+                    // TODO: Assign action
                     break;
                 case StrategyTypes.WARFARE:
                     Front = ImageResources.Warfare;
+                    // TODO: Assign action
                     break;
                 case StrategyTypes.TECHNOLOGY:
                     Front = ImageResources.Technology;
+                    // TODO: Assign action
                     break;
                 case StrategyTypes.IMPERIAL:
                     Front = ImageResources.Imperial;
+                    // TODO: Assign action
                     break;
                 default:
                     throw new NotImplementedException("TBD Generic Strategy Card");
-                    break;
             }
         }
 
-        public bool ShowCardTo(Objects.Player player)
-        {
-            // TODO: Show Card to selected player only
-            // TODO: Manager to track if it was viewed/seen,
-            // Timeout before removing permission to view,
-            // Return true/false if function succeeded in queing prompt/permission for player to view card
-
-            return false;
-        }
-
-        public bool ShowCardToAll(Objects.Board board)
-        {
-            // TODO: Shows card to all players in the game
-            return ShowCardToXPlayers(board.Players);
-        }
-
-        public bool ShowCardToXPlayers(List<Objects.Player> players)
-        {
-            bool shownToAll = true;
-            // TODO: Shows card to a list of players
-            foreach (Objects.Player player in players)
-            {
-                shownToAll &= ShowCardTo(player);
-            }
-            return shownToAll;
-        }
     }
 }
