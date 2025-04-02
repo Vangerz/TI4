@@ -26,14 +26,23 @@ namespace GameUI.Resources
         public const string PromissoryCardBack = "";
 
         //Front of strategy cards
-        public static BitmapImage Leadership = new(new Uri(ResourceFolder + "Card_Strategy_Leadership.png"));
-        public static BitmapImage Diplomacy = new(new Uri(ResourceFolder + "Card_Strategy_Diplomacy.png"));
-        public static BitmapImage Politics = new(new Uri(ResourceFolder + "Card_Strategy_Politics.png"));
-        public static BitmapImage Construction = new(new Uri(ResourceFolder + "Card_Strategy_Construction.png"));
-        public static BitmapImage Trade = new(new Uri(ResourceFolder + "Card_Strategy_Trade.png"));
-        public static BitmapImage Warfare = new(new Uri(ResourceFolder + "Card_Strategy_Warfare.png"));
-        public static BitmapImage Technology = new(new Uri(ResourceFolder + "Card_Strategy_Technology.png"));
-        public static BitmapImage Imperial = new(new Uri(ResourceFolder + "Card_Strategy_Imperial.png"));
+        public static BitmapImage LeadershipFront = new(new Uri(ResourceFolder + "Card_Strategy_Leadership.png"));
+        public static BitmapImage DiplomacyFront = new(new Uri(ResourceFolder + "Card_Strategy_Diplomacy.png"));
+        public static BitmapImage PoliticsFront = new(new Uri(ResourceFolder + "Card_Strategy_Politics.png"));
+        public static BitmapImage ConstructionFront = new(new Uri(ResourceFolder + "Card_Strategy_Construction.png"));
+        public static BitmapImage TradeFront = new(new Uri(ResourceFolder + "Card_Strategy_Trade.png"));
+        public static BitmapImage WarfareFront = new(new Uri(ResourceFolder + "Card_Strategy_Warfare.png"));
+        public static BitmapImage TechnologyFront = new(new Uri(ResourceFolder + "Card_Strategy_Technology.png"));
+        public static BitmapImage ImperialFront = new(new Uri(ResourceFolder + "Card_Strategy_Imperial.png"));
+
+        public static BitmapImage LeadershipBack = new(new Uri(ResourceFolder + "Card_Strategy_Leadership_Back.png"));
+        public static BitmapImage DiplomacyBack = new(new Uri(ResourceFolder + "Card_Strategy_Diplomacy_Back.png"));
+        public static BitmapImage PoliticsBack = new(new Uri(ResourceFolder + "Card_Strategy_Politics_Back.png"));
+        public static BitmapImage ConstructionBack = new(new Uri(ResourceFolder + "Card_Strategy_Construction_Back.png"));
+        public static BitmapImage TradeBack = new(new Uri(ResourceFolder + "Card_Strategy_Trade_Back.png"));
+        public static BitmapImage WarfareBack = new(new Uri(ResourceFolder + "Card_Strategy_Warfare_Back.png"));
+        public static BitmapImage TechnologyBack = new(new Uri(ResourceFolder + "Card_Strategy_Technology_Back.png"));
+        public static BitmapImage ImperialBack = new(new Uri(ResourceFolder + "Card_Strategy_Imperial_Back.png"));
 
         public static string GetSolutionPath()
         {
