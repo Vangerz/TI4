@@ -44,6 +44,9 @@ namespace GameUI.Resources
         public static BitmapImage TechnologyBack = new(new Uri(ResourceFolder + "Card_Strategy_Technology_Back.png"));
         public static BitmapImage ImperialBack = new(new Uri(ResourceFolder + "Card_Strategy_Imperial_Back.png"));
 
+        //Systems
+        public static BitmapImage Empty_Space_S = new(new Uri(ResourceFolder + "ai_empty_space.jpg"));
+
         public static string GetSolutionPath()
         {
             string assemblyPath = Assembly.GetExecutingAssembly().Location;

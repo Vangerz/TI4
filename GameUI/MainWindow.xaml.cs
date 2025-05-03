@@ -61,6 +61,7 @@ public partial class MainWindow : Window
             Name = "Leadership",
             action = () => { Console.WriteLine("Leadership Action"); }
         };
+        
         card1 = leadership;
         //Card diplomacy = new StrategyCard(StrategyTypes.DIPLOMACY);
         //Card politics = new StrategyCard(StrategyTypes.POLITICS);
@@ -93,5 +94,14 @@ public partial class MainWindow : Window
             Card1.Source = card1.Front;
         }
         frontVisible = !frontVisible;
+    }
+
+    private void Change_View(object sender, MouseButtonEventArgs e)
+    {
+    }
+
+    private void GoToBoard_Click(object sender, RoutedEventArgs e)
+    {
+        MainFrame.Navigate(new Uri("Objects/Board.xaml", UriKind.Relative));
     }
 }
