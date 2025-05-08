@@ -15,6 +15,9 @@ Each Game contains the following:
 Board
 1-6 Players
 
+Each Board contains:
+Systems
+
 Each Player contains the following:
 Public, Private, Shareable game pieces including:
 Race
